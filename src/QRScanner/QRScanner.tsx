@@ -6,6 +6,7 @@ import {
   useCameraPermission,
   useCodeScanner,
 } from 'react-native-vision-camera';
+import type { CodeType } from 'react-native-vision-camera/lib/typescript/CodeScanner';
 import useSound from '../hooks/useSound';
 import FooterWrapper from './component/FooterWrapper';
 import MarkerWrapper from './component/MarkerWrapper';
@@ -25,7 +26,7 @@ interface QRScannerProps {
   markerContent?: any;
   showMarker?: boolean;
   customMarker?: any;
-  codeTypes?: string[];
+  codeTypes?: CodeType[];
 }
 
 const QRScanner = (props: QRScannerProps) => {
