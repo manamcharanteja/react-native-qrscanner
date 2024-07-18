@@ -1,6 +1,6 @@
 {
   "name": "react-native-vision-scanner",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "This is QR code scanner package React native",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",

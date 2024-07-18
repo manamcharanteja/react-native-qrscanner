@@ -10961,39 +10961,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"react-native-qrscanner@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "react-native-qrscanner@workspace:."
-  dependencies:
-    "@commitlint/config-conventional": ^17.0.2
-    "@evilmartians/lefthook": ^1.5.0
-    "@react-native/eslint-config": ^0.73.1
-    "@release-it/conventional-changelog": ^5.0.0
-    "@types/jest": ^29.5.5
-    "@types/react": ^18.2.44
-    commitlint: ^17.0.2
-    del-cli: ^5.1.0
-    eslint: ^8.51.0
-    eslint-config-prettier: ^9.0.0
-    eslint-plugin-prettier: ^5.0.1
-    jest: ^29.7.0
-    prettier: ^3.0.3
-    react: 18.2.0
-    react-native: 0.74.3
-    react-native-builder-bob: ^0.26.0
-    react-native-sound: ^0.11.2
-    react-native-vision-camera: 3.4.0
-    release-it: ^15.0.0
-    turbo: ^1.10.7
-    typescript: ^5.2.2
-  peerDependencies:
-    react: "*"
-    react-native: "*"
-    react-native-sound: "*"
-    react-native-vision-camera: 3.4.0
-  languageName: unknown
-  linkType: soft
-
 "react-native-sound@npm:^0.11.2":
   version: 0.11.2
   resolution: "react-native-sound@npm:0.11.2"
@@ -11072,6 +11039,39 @@ __metadata:
   checksum: 5301b9cb303d3ee7b9f4d4c0368ace06d62826c6c4deb92c744a3dfb8a4de30f2fd5d40374bd529a3e5647245a02736d45fb0a2c6f9bbb3350bc9cc9951e57a6
   languageName: node
   linkType: hard
+
+"react-native-vision-scanner@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "react-native-vision-scanner@workspace:."
+  dependencies:
+    "@commitlint/config-conventional": ^17.0.2
+    "@evilmartians/lefthook": ^1.5.0
+    "@react-native/eslint-config": ^0.73.1
+    "@release-it/conventional-changelog": ^5.0.0
+    "@types/jest": ^29.5.5
+    "@types/react": ^18.2.44
+    commitlint: ^17.0.2
+    del-cli: ^5.1.0
+    eslint: ^8.51.0
+    eslint-config-prettier: ^9.0.0
+    eslint-plugin-prettier: ^5.0.1
+    jest: ^29.7.0
+    prettier: ^3.0.3
+    react: 18.2.0
+    react-native: 0.74.3
+    react-native-builder-bob: ^0.26.0
+    react-native-sound: ^0.11.2
+    react-native-vision-camera: 3.4.0
+    release-it: ^15.0.0
+    turbo: ^1.10.7
+    typescript: ^5.2.2
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-sound: "*"
+    react-native-vision-camera: 3.4.0
+  languageName: unknown
+  linkType: soft
 
 "react-native@npm:0.74.3":
   version: 0.74.3

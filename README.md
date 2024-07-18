@@ -1,24 +1,36 @@
-# react-native-qrscanner
+# react-native-vision-camera
 
 This is QR code scanner package
 
 ## Installation
 
 ```sh
-npm install react-native-qrscanner
+yarn add react-native-vision-scanner
+```
+
+### Install supporting packages
+
+```sh
+yarn add react-native-vision-camera
+yarn add react-native-sound
 ```
 
 ## Usage
 
-
 ```js
-import { multiply } from 'react-native-qrscanner';
+import { QRScanner } from 'react-native-vision-scanner';
 
 // ...
 
-const result = await multiply(3, 7);
+<QRScanner
+  showMarker
+  cameraProps={{
+    isActive: true,
+    enableZoomGesture: true,
+  }}
+  onScan={onScan}
+/>;
 ```
-
 
 ## Contributing
 
