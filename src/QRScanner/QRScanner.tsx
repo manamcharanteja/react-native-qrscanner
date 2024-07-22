@@ -27,6 +27,7 @@ interface QRScannerProps {
   showMarker?: boolean;
   customMarker?: any;
   codeTypes?: CodeType[];
+  ignoreLastScanCheck?: boolean;
 }
 
 const QRScanner = (props: QRScannerProps) => {
@@ -40,6 +41,7 @@ const QRScanner = (props: QRScannerProps) => {
     showMarker = true,
     customMarker = null,
     codeTypes = ['qr'],
+    ignoreLastScanCheck = false,
   } = props;
   const { playSoundWithVibration } = useSound();
   const { hasPermission, requestPermission } = useCameraPermission();
@@ -64,7 +66,7 @@ const QRScanner = (props: QRScannerProps) => {
    */
   const onCodeScanned = (codes: any): void => {
     const code = codes.shift();
-    if (code.value !== lastScan) {
+    if (ignoreLastScanCheck || code.value !== lastScan) {
       playSoundWithVibration();
       setLastScan(code.value);
       console.log(code.value);
@@ -96,9 +98,7 @@ const QRScanner = (props: QRScannerProps) => {
         codeScanner={codeScanner}
         device={device}
         {...cameraProps}
-      ></Camera>
-
-      <TopWrapper>{topContent}</TopWrapper>
+      />
       {cameraProps?.isActive && showMarker && (
         <MarkerWrapper
           customMarker={customMarker}
@@ -109,6 +109,7 @@ const QRScanner = (props: QRScannerProps) => {
           {markerContent}
         </MarkerWrapper>
       )}
+      <TopWrapper>{topContent}</TopWrapper>
       <FooterWrapper>{footerContent}</FooterWrapper>
     </View>
   );
