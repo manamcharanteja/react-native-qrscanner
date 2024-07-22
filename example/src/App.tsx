@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import { QRScanner } from 'react-native-qrscanner';
+import { QRScanner } from 'react-native-vision-scanner';
 
 export default function App() {
   return (
