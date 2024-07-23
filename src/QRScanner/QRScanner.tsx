@@ -28,6 +28,7 @@ interface QRScannerProps {
   customMarker?: any;
   codeTypes?: CodeType[];
   ignoreLastScanCheck?: boolean;
+  showTorch?: boolean;
 }
 
 const QRScanner = (props: QRScannerProps) => {
@@ -42,11 +43,13 @@ const QRScanner = (props: QRScannerProps) => {
     customMarker = null,
     codeTypes = ['qr'],
     ignoreLastScanCheck = false,
+    showTorch = true,
   } = props;
   const { playSoundWithVibration } = useSound();
   const { hasPermission, requestPermission } = useCameraPermission();
   const [lastScan, setLastScan] = useState(null);
   const [showCode, setShowCode] = useState(false);
+  const [torchOn, setTorchOff] = useState(false);
 
   /**
    * A function to trigger highlighting and then revert back after a delay.
@@ -97,6 +100,7 @@ const QRScanner = (props: QRScannerProps) => {
         style={styles.cameraView}
         codeScanner={codeScanner}
         device={device}
+        torch={torchOn ? 'on' : 'off'}
         {...cameraProps}
       />
       {cameraProps?.isActive && showMarker && (
@@ -109,7 +113,13 @@ const QRScanner = (props: QRScannerProps) => {
           {markerContent}
         </MarkerWrapper>
       )}
-      <TopWrapper>{topContent}</TopWrapper>
+      <TopWrapper
+        showTorch={showTorch}
+        torchOn={torchOn}
+        setTorchOff={setTorchOff}
+      >
+        {topContent}
+      </TopWrapper>
       <FooterWrapper>{footerContent}</FooterWrapper>
     </View>
   );
