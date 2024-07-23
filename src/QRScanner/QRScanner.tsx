@@ -11,6 +11,7 @@ import useSound from '../hooks/useSound';
 import FooterWrapper from './component/FooterWrapper';
 import MarkerWrapper from './component/MarkerWrapper';
 import TopWrapper from './component/TopWrapper';
+import TorchWrapper from './component/TorchWrapper';
 
 interface OptionsProps {
   showLastScannedCode: true;
@@ -113,13 +114,10 @@ const QRScanner = (props: QRScannerProps) => {
           {markerContent}
         </MarkerWrapper>
       )}
-      <TopWrapper
-        showTorch={showTorch}
-        torchOn={torchOn}
-        setTorchOff={setTorchOff}
-      >
-        {topContent}
-      </TopWrapper>
+      <TopWrapper>{topContent}</TopWrapper>
+      {showTorch && (
+        <TorchWrapper torchOn={torchOn} setTorchOff={setTorchOff} />
+      )}
       <FooterWrapper>{footerContent}</FooterWrapper>
     </View>
   );
