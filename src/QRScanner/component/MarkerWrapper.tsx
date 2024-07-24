@@ -74,8 +74,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     width: '100%',
-    // justifyContent: 'flex-start',
-    // alignItems: 'center',
+    zIndex: 0,
   },
   topOverlay: {
     flex: 1,
@@ -85,7 +84,7 @@ const styles = StyleSheet.create({
   },
   middleContainer: {
     flexDirection: 'row',
-    zIndex: 9999,
+    zIndex: 1,
   },
   sideOverlay: {
     flex: 1,
@@ -97,7 +96,6 @@ const styles = StyleSheet.create({
     height: markerSize,
     alignItems: 'center',
     justifyContent: 'center',
-    // marginTop: '-20%',
     backgroundColor: 'transparent',
   },
   bottomOverlay: {
