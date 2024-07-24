@@ -3,6 +3,11 @@ import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 const TorchWrapper = (props: any) => {
   const TORCH_ICON = require('../../assets/FlashIcon.png');
   const { torchOn, setTorchOff, style, ...restProps } = props;
+  const getImageStyle = (isTorchOn: boolean) => {
+    return {
+      tintColor: isTorchOn ? 'yellow' : 'white',
+    };
+  };
   return (
     <View style={[styles.header, style]} {...restProps}>
       <View style={styles.endOptions}>
@@ -10,10 +15,7 @@ const TorchWrapper = (props: any) => {
           onPress={() => setTorchOff(!torchOn)}
           style={styles.endFeature}
         >
-          <Image
-            style={{ tintColor: torchOn ? 'yellow' : 'white' }}
-            source={TORCH_ICON}
-          />
+          <Image style={getImageStyle(torchOn)} source={TORCH_ICON} />
         </TouchableOpacity>
       </View>
     </View>

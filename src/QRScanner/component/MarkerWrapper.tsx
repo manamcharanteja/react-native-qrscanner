@@ -21,12 +21,17 @@ const MarkerWrapper = (props: any) => {
       </View>
     );
   }
+  const getCodeLabelStyle = (showCode: boolean) => {
+    return {
+      opacity: showCode ? 1 : 0.5,
+    };
+  };
 
   return (
     <DefaultMarker {...restProps}>
       {options?.showLastScannedCode && restProps?.lastCode && (
         <View
-          style={[styles.codeLabel, { opacity: restProps?.showCode ? 1 : 0.5 }]}
+          style={[styles.codeLabel, getCodeLabelStyle(restProps?.showCode)]}
         >
           <Text style={styles.code}>{restProps?.lastCode}</Text>
         </View>
@@ -35,7 +40,7 @@ const MarkerWrapper = (props: any) => {
     </DefaultMarker>
   );
 };
-const DefaultMarker = ({ children, options, ...props }: any) => {
+const DefaultMarker = ({ children, ...props }: any) => {
   console.log('🚀 ~ DefaultMarker ~ props:', props);
 
   return (
