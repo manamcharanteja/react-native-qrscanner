@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    marginTop: '-40%',
+    marginTop: '-50%',
   },
   middleContainer: {
     flexDirection: 'row',

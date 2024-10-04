@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   endFeature: {
-    margin: 25,
+    marginHorizontal: 25,
+    marginTop: 12,
   },
 });
 
