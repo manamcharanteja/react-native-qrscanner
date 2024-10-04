@@ -30,6 +30,7 @@ interface QRScannerProps {
   codeTypes?: CodeType[];
   ignoreLastScanCheck?: boolean;
   showTorch?: boolean;
+  reactivateTime?: number;
 }
 
 const QRScanner = (props: QRScannerProps) => {
@@ -45,12 +46,14 @@ const QRScanner = (props: QRScannerProps) => {
     codeTypes = ['qr'],
     ignoreLastScanCheck = false,
     showTorch = true,
+    reactivateTime = 2000,
   } = props;
   const { playSoundWithVibration } = useSound();
   const { hasPermission, requestPermission } = useCameraPermission();
   const [lastScan, setLastScan] = useState(null);
   const [showCode, setShowCode] = useState(false);
   const [torchOn, setTorchOff] = useState(false);
+  const [isScanAllowed, setIsScanAllowed] = useState(true);
 
   /**
    * A function to trigger highlighting and then revert back after a delay.
@@ -62,6 +65,16 @@ const QRScanner = (props: QRScannerProps) => {
       setShowCode(false);
     }, 500);
   };
+  /**
+   * A function to reactivate the scanner after a scan.
+   * @return {void} This function does not return a value.
+   */
+  const reactivateTimeout = (): void => {
+    setIsScanAllowed(false);
+    setTimeout(() => {
+      setIsScanAllowed(true);
+    }, reactivateTime);
+  };
 
   /**
    * Handles the event when a code is scanned.
@@ -69,6 +82,7 @@ const QRScanner = (props: QRScannerProps) => {
    * @return {void} This function does not return a value.
    */
   const onCodeScanned = (codes: any): void => {
+    if (!isScanAllowed) return;
     const code = codes.shift();
     if (ignoreLastScanCheck || code.value !== lastScan) {
       playSoundWithVibration();
@@ -76,6 +90,7 @@ const QRScanner = (props: QRScannerProps) => {
       console.log(code.value);
       _triggerHighlight();
       onScan && onScan(code.value);
+      reactivateTimeout();
     }
   };
 
